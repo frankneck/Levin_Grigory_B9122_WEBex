@@ -1,4 +1,6 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -6,14 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $users = json_decode(file_get_contents("users.json"), true);
     $users[$username] = $password;
 
-    file_put_contents("users.json", json_encode($users));
-    echo "Регистрация успешна! <a href='login.php'>Войти</a>";
+    file_put_contents("users.json", json_encode($users, JSON_UNESCAPED_UNICODE));
+    echo "Р РµРіРёСЃС‚СЂР°С†РёСЏ СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅР°! <a href='login.php'>Р’РѕР№С‚Рё</a>";
     exit;
 }
 ?>
 <form method="POST">
-    <h2>Регистрация</h2>
-    <input name="username" placeholder="Логин" required><br>
-    <input name="password" placeholder="Пароль" required><br>
-    <button type="submit">Зарегистрироваться</button>
+    <h2>Р РµРіРёСЃС‚СЂР°С†РёСЏ</h2>
+    <input name="username" placeholder="Р›РѕРіРёРЅ" required><br>
+    <input name="password" placeholder="РџР°СЂРѕР»СЊ" required><br>
+    <button type="submit">Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ</button>
 </form>

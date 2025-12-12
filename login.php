@@ -1,4 +1,6 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
+
 $users = json_decode(file_get_contents("users.json"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -10,13 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: greet.php");
         exit;
     } else {
-        echo "Неверные данные!";
+        echo "РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ!";
     }
 }
 ?>
 <form method="POST">
-    <h2>Вход</h2>
-    <input name="username" placeholder="Логин" required><br>
-    <input name="password" placeholder="Пароль" required><br>
-    <button type="submit">Войти</button>
+    <h2>Р’С…РѕРґ</h2>
+    <input name="username" placeholder="Р›РѕРіРёРЅ" required><br>
+    <input name="password" placeholder="РџР°СЂРѕР»СЊ" required><br>
+    <button type="submit">Р’РѕР№С‚Рё</button>
 </form>
